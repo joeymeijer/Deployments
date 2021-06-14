@@ -28,7 +28,7 @@ function get-SHPdrivers {
 
     #installing drivers
     Get-ChildItem $driverdir -Recurse -Filter "*.inf" | 
-    ForEach-Object { start-process "C:\WINDOWS\system32\pnputil.exe" -argumentlist "/add-driver $_.FullName /install" -wait }
+    ForEach-Object { pnputil.exe /add-driver $_.FullName /install }
 
 }
 
