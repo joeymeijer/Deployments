@@ -1,2 +1,2 @@
 # All Deploy scripts for Shypple
-https://joeym0180.github.io/Deploy/Shypple/Printers.ps1
+[Printers.ps1](Deploy/Shypple/Printers.ps1)
