@@ -1,6 +1,6 @@
 $tempdir = "C:\Temp"
 
-function get-shyppledrivers {
+function get-SHPdrivers {
     # define vars
     $driverdir = "$($tempdir)\drivers"
     $downloadurl = "https://www.kyoceradocumentsolutions.nl/content/download-center/nl/drivers/all/KX_Universal_Printer_Driver_zip.download.zip"
@@ -32,12 +32,12 @@ function get-shyppledrivers {
 
 }
 
-function add-shyppleprinters {
+function add-SHPprinters {
     add-printerport -name "SHPPRN001port" -printerhostaddress "10.16.6.50"
     add-printerdriver "Kyocera TASKalfa 2553ci KX"
     add-printer -name "SHPPRN001" -drivername "Kyocera TASKalfa 2553ci KX" -Port "SHPPRN001port"
 
 }
 
-get-shyppledrivers
-add-shyppleprinters
+get-SHPdrivers
+add-SHPprinters
