@@ -15,7 +15,7 @@ function get-shyppledrivers {
         if ((test-path -PathType leaf -path $downloadzip) -eq $true) {
             write-host "Done" -ForegroundColor Green
             write-host "Expanding zipfile to install Driver"
-            Expand-Archive -Path $downloadzip -DestinationPath $driverdir
+            Expand-Archive -Path $downloadzip -DestinationPath $driverdir -Force -ErrorAction SilentlyContinue
         } else {
             write-host "Failed, could not validate if drivers are downloaded" -ForegroundColor Red
         }
