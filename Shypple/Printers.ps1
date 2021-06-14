@@ -1,6 +1,6 @@
 $tempdir = "C:\Temp"
 
-get-shyppledrivers {
+function get-shyppledrivers {
     # define vars
     $driverdir = "$($tempdir)\drivers"
     $downloadurl = "https://www.kyoceradocumentsolutions.nl/content/download-center/nl/drivers/all/KX_Universal_Printer_Driver_zip.download.zip"
