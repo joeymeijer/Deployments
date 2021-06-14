@@ -16,6 +16,7 @@ function get-shyppledrivers {
             write-host "Done" -ForegroundColor Green
             write-host "Expanding zipfile to install Driver"
             Expand-Archive -Path $downloadzip -DestinationPath $driverdir -Force -ErrorAction SilentlyContinue
+            Remove-Item -Force -Path $downloadzip
         } else {
             write-host "Failed, could not validate if drivers are downloaded" -ForegroundColor Red
         }
@@ -27,7 +28,7 @@ function get-shyppledrivers {
 
     #installing drivers
     Get-ChildItem $driverdir -Recurse -Filter "*.inf" | 
-    ForEach-Object { PNPUtil.exe /add-driver $_.FullName /install }
+    ForEach-Object { C:\WINDOWS\system32\pnputil.exe /add-driver $_.FullName /install }
 
 }
 
