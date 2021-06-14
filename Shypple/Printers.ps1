@@ -33,8 +33,8 @@ function get-shyppledrivers {
 
 
 function add-shyppleprinters {
-    add-printerport –name “SHPPRN001port” –printerhostaddress “10.16.6.50”
-    add-printer –name “SHPPRN001” –drivername “Kyocera TASKalfa 2553ci KX” -Port “SHPPRN001port”
+    add-printerport –name "SHPPRN001port" –printerhostaddress "10.16.6.50"
+    add-printer –name "SHPPRN001" –drivername "Kyocera TASKalfa 2553ci KX" -Port "SHPPRN001port"
 
 }
 
