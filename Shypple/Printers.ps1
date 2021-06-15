@@ -31,9 +31,11 @@ function get-SHPdrivers {
     ForEach-Object { 
         try {
             start-process -path "C:\WINDOWS\system32\pnputil.exe" -argumentlist "/add-driver $($_.FullName) /install" -wait
+            write-host "add-driver $($_.FullName)"
         }
         catch {
             start-process -path "C:\Windows\SysNative\pnputil.exe" -argumentlist "/add-driver $($_.FullName) /install" -wait
+            write-host "add-driver $($_.FullName)"
         }
         
     }
