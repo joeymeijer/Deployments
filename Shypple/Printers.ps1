@@ -29,15 +29,8 @@ function get-SHPdrivers {
     #installing drivers
     Get-ChildItem $driverdir -Recurse -Filter "*.inf" | 
     ForEach-Object { 
-        try {
-            start-process -path "C:\WINDOWS\system32\pnputil.exe" -argumentlist "/add-driver $($_.FullName) /install" -wait
+            pnputil.exe /add-driver $($_.FullName) /install
             write-host "add-driver $($_.FullName)"
-        }
-        catch {
-            start-process -path "C:\Windows\SysNative\pnputil.exe" -argumentlist "/add-driver $($_.FullName) /install" -wait
-            write-host "add-driver $($_.FullName)"
-        }
-        
     }
 
 }
@@ -49,5 +42,21 @@ function add-SHPprinters {
 
 }
 
-get-SHPdrivers
-add-SHPprinters
+
+#check if printer is installed
+
+try {
+    get-printerdriver -name "Kyocera TASKalfa 2553ci KX" -erroraction stop
+}
+catch {
+    write-warning "printerdriver not found, downloading and installing drivers"
+    get-SHPdrivers
+}
+
+try {
+     get-printer -name "SHPPRN001" -erroraction stop
+}
+catch {
+    write-warning "printer niet geinstalleerd, printer toevoegen"
+    add-SHPprinters
+}
