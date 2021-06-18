@@ -1,2 +1,0 @@
-@echo off
-PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& {Start-Process PowerShell -ArgumentList '-ExecutionPolicy Bypass invoke-expression (invoke-webrequest -uri https://raw.githubusercontent.com/Joeym0180/Deploy/main/Shypple/beheername-check.ps1)' -Verb RunAs}"
